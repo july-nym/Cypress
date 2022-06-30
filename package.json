@@ -1,0 +1,46 @@
+{
+  "name": "cypress-bdd-cucumber.js",
+  "version": "1.0.0",
+  "description": "Cucumber. js is a test framework for behavior-driven JavaScript development. Cucumber. js tests are written in the human-readable Gherkin language and are stored in feature files that have the feature extension js and recognizes features written in Gherkin so you can run Cucumber.",
+  "main": "index.js",
+  "scripts": {
+    "auto:runner": "cypress open",
+    "auto:server": "node cli --server",
+    "auto:local": "node cli",
+    "spam": "cypress-repeat run -n 3 --until-passes cypress run --spec 'cypress/integration/e2e-test/flight/payment/positive/stripe.feature' --record --browser chrome",
+    "pretty": "prettier --write \"./**/*.{js,jsx,json}\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/july-nym/cypress-bdd-cucumber.js.git"
+  },
+  "keywords": [],
+  "author": "Julian",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/july-nym/cypress-bdd-cucumber.js/issues"
+  },
+  "homepage": "https://github.com/july-nym/cypress-bdd-cucumber.js#readme",
+  "devDependencies": {
+    "chai": "^4.3.4",
+    "cucumber": "^7.0.0-rc.0",
+    "cypress": "9.3.1",
+    "cypress-cucumber-preprocessor": "^4.2.0",
+    "cypress-repeat": "^2.2.5",
+    "del": "^6.0.0",
+    "eslint-plugin-chai-friendly": "^0.7.1",
+    "eslint-plugin-cypress": "^2.11.3",
+    "lodash": "^4.17.21",
+    "mocha": "^9.0.3",
+    "yarn": "^1.22.11"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false
+  },
+  "dependencies": {
+    "glob": "^7.1.7",
+    "jshint": "^2.12.0",
+    "marked": "^4.0.3",
+    "prettier": "^2.3.2"
+  }
+}

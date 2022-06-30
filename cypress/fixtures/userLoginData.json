@@ -1,0 +1,8 @@
+{
+  "validEmail": "julian.travlr@gmail.com",
+  "validPassword": "qwertyuiop1234567890",
+  "incorrectEmail": "julian.travlrgmail.com.id",
+  "incorrectPassword": "a21eeq2edqdq",
+  "fraudEmail": "fraud.detection.travlr@gmail.com",
+  "fraudPassword": "FRAUD1945"
+}

@@ -1,0 +1,12 @@
+export const DESTINATION_COLUMN = '#destinationsInputGroup > div > div.multiselect__tags',
+ DESTINATION_LIST = '#destinationsInputGroup > div > div.multiselect__content-wrapper > ul > li',
+ CHECK_IN_DATE_LIST = 'body > div.el-picker-panel.el-date-picker.el-popper > div.el-picker-panel__body-wrapper > div > div.el-picker-panel__content > table.el-date-table > tbody > tr > td.available > div > span',
+ CHECK_OUT_DATE_LIST = 'body > div:nth-child(66) > div.el-picker-panel__body-wrapper > div > div.el-picker-panel__content > table.el-date-table > tbody > tr:nth-child(2) > td > div > span',
+ GUEST_AND_ROOM_COLUMN = '#app > main > div > section > div.t-container.t-hero-main-container > div > div > div.t-hero-main-content-list-booking.t-m-t-40 > div > div > div:nth-child(3) > div > div.t-position-relative > button',
+ ADULT_COLUMN = '#app > main > div > section > div.t-container.t-hero-main-container > div > div > div.t-hero-main-content-list-booking.t-m-t-40 > div > div > div:nth-child(3) > div > div.dropdown.dropdown--rounded.dropdown--opened > div > div.guest-count-box > div.counter.t-display-table.t-w-100.t-m-b-16 > div > input',
+ CHILDREN_COLUMN = '#app > main > div > section > div.t-container.t-hero-main-container > div > div > div.t-hero-main-content-list-booking.t-m-t-40 > div > div > div:nth-child(3) > div > div.dropdown.dropdown--rounded.dropdown--opened > div > div.guest-count-box > div.counter.t-display-table.t-w-100.counter--min-disabled > div > input',
+ HEADING_TITLE = ':nth-child(5) > .t-container > .t-w-100 > .t-m-b-16 > .mw-60-md > .t-heading-3',
+ SEARCH_HOTEL_BUTTON = '#app > main > div > section > div.t-container.t-hero-main-container > div > div > div.t-hero-main-content-list-booking.t-m-t-40 > div > div > div.t-btn-accommodation.t-col-lg-2 > button',
+ $4STAR_HOTEL_PRODUCT = '#booking > div.container > div > div.right__content > div:nth-child(6) > ul > div > div > div.boxItem__content > a > div.boxItem__content__title > a',
+ ROOM_AVAILABLE_BUTTON = '.btn__check__available__dekstop > #btn__top__go_room',
+ SUPERIOR_ROOM = '#booking > div.container > div > div.detail__content-reserve.detail__content-reserve-rooms > div > div:nth-child(1) > form > div.detail__reserve__item__rightCol > ul > li:nth-child(1) > div.box-content.room-option__right > div.box-action > button'
