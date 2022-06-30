@@ -1,0 +1,126 @@
+name: e2e test staging
+
+on:
+  push:
+    branches:
+      - staging
+jobs:
+  test-parallel:
+    name: Install Parallel Package
+    runs-on: ubuntu-20.04
+    strategy:
+      fail-fast: false
+      matrix:
+        containers: [1, 2, 3, 4]
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Cypress Install
+        uses: cypress-io/github-action@v2
+        with:
+          runTests: false
+
+      - name: Humm tests
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          browser: chrome
+          record: true
+          parallel: true
+          command: yarn auto:server --record --tags="@humm" --wlp=10travlr --parallel-group=Humm
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+
+      - name: Sleep for 30 seconds
+        uses: whatnick/wait-action@master
+        with:
+          time: '30s'
+
+      - name: CreditCard tests
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          browser: chrome
+          record: true
+          parallel: true
+          command: yarn auto:server --record --tags="@creditcard" --wlp=10travlr --parallel-group=CreditCard
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+
+      - name: Sleep for 30 seconds
+        uses: whatnick/wait-action@master
+        with:
+          time: '30s'
+
+      - name: Humm Decline tests
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          browser: chrome
+          record: true
+          parallel: true
+          command: yarn auto:server --record --tags="@decline-humm" --wlp=10travlr --parallel-group=Humm-Decline
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+
+      - name: Sleep for 30 seconds
+        uses: whatnick/wait-action@master
+        with:
+          time: '30s'
+          
+      - name: Credit Card Decline tests
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          browser: chrome
+          record: true
+          parallel: true
+          command: yarn auto:server --record --tags="@decline-creditcard" --wlp=10travlr --parallel-group=CreditCard-Decline
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+
+      - name: Sleep for 30 seconds
+        uses: whatnick/wait-action@master
+        with:
+          time: '30s'
+
+      - name: Fraud tests
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          browser: chrome
+          record: true
+          parallel: true
+          command: yarn auto:server --record --tags="@fraud" --wlp=10travlr --parallel-group=Fraud
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+
+  test-sequence:
+    name: Install Sequence Package
+    needs: Install Parallel Package
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Hero deal tests
+        uses: cypress-io/github-action@v2
+        with:
+          browser: chrome
+          record: true
+          command: yarn auto:local --record --tags="@hero-deal" --wlp=10travlr
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          
