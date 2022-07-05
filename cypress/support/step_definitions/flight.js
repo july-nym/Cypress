@@ -151,13 +151,11 @@ Then('The user should received "Your card was declined" alert after purchase the
 Then('The user should received flight "Booking success!" payment status', () => {
   cy.get(PAYMENT_STATUS_TEXT).should('contain', 'Booking success!');
   utilities.uncaughtException();
-  utilities.createSnapshot('FlightPaymentStatusPage');
 });
 
 Then('The user should received "Suspicious Transaction Detected" page after purchase flight', () => {
   cy.get(SUSPICIOUS_TEXT).should('contain', 'Suspicious Transaction Detected');
   utilities.uncaughtException();
-  utilities.createSnapshot('Flight-Fraud-Page');
 });
 
 // <============================================================PRODUCT DETAIL PAGE===========================================================>
@@ -167,5 +165,4 @@ Then('The user go to the flight product detail page', () => {
     var transactionFlightID = url.split('/').pop();
     cy.visit(`${baseURL}/booking/flights-v2/${transactionFlightID}`);
   });
-  utilities.createSnapshot('FlightProductDetailPage');
 });

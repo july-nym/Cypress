@@ -68,7 +68,6 @@ class LandingPage {
 
   clickSearchButton() {
     cy.get(TITLE_HEADING).click();
-    utilities.createSnapshot('FlightLandingPage');
     cy.get(SEARCH_BUTTON).click();
   }
 

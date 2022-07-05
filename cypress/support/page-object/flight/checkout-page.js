@@ -119,7 +119,6 @@ class CheckoutPage {
   }
 
   clickPaySecurelyButton() {
-    utilities.createSnapshot('FlightCheckoutPage');
     cy.get(PAY_SECURELY_BUTTON).click();
   }
 

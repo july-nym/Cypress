@@ -14,7 +14,6 @@ class ReviewPage {
   }
 
   clickIamReadyToCheckoutButton() {
-    utilities.createSnapshot('FlightReviewPage');
     cy.get(IM_READY_TO_CHECKOUT_BUTTON).click();
   }
 }
